@@ -1,0 +1,3 @@
+service/TrooperService.class
+service/impl/TropperServiceImpl.class
+domain/Trooper.class

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dacs-frontend:war">
+    <output-path>$PROJECT_DIR$/dacs-frontend/target</output-path>
+    <root id="archive" name="dacs-frontend.war">
+      <element id="artifact" artifact-name="dacs-frontend:war exploded" />
+    </root>
+  </artifact>
+</component>

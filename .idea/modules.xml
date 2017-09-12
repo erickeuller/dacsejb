@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dacs-deploy/dacs-deploy.iml" filepath="$PROJECT_DIR$/dacs-deploy/dacs-deploy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dacs-frontend/dacs-frontend.iml" filepath="$PROJECT_DIR$/dacs-frontend/dacs-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/dacs-rest/dacs-rest.iml" filepath="$PROJECT_DIR$/dacs-rest/dacs-rest.iml" />
       <module fileurl="file://$PROJECT_DIR$/dacs-service/dacs-service.iml" filepath="$PROJECT_DIR$/dacs-service/dacs-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/dacsproject.iml" filepath="$PROJECT_DIR$/dacsproject.iml" />

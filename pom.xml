@@ -12,6 +12,7 @@
         <module>dacs-rest</module>
         <module>dacs-service</module>
         <module>dacs-deploy</module>
+        <module>dacs-frontend</module>
     </modules>
 
     <build>
