@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dacs-deploy" />
+        <module name="dacs-rest" />
+        <module name="dacs-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dacs-deploy" target="1.5" />
+      <module name="dacs-domain" target="1.5" />
+      <module name="dacs-rest" target="1.5" />
+      <module name="dacs-service" target="1.5" />
+      <module name="dacsejb" target="1.5" />
+      <module name="dacsproject" target="1.5" />
+      <module name="dacsrest" target="1.5" />
+      <module name="dacsservice" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

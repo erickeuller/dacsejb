@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dacs-project</artifactId>
+        <groupId>dacs</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>dacs-deploy</artifactId>
+    <packaging>ear</packaging>
+
+    <properties>
+        <cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>dacs</groupId>
+            <artifactId>dacs-rest</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>dacs</groupId>
+            <artifactId>dacs-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>wildfly-standalone</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>${cargo-maven2-plugin.version}</version>
+
+                        <configuration>
+
+                            <container>
+                                <containerId>wildfly10x</containerId>
+                                <zipUrlInstaller>
+                                    <url>http://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.zip</url>
+                                </zipUrlInstaller>
+
+                                <dependencies>
+                                    <dependency>
+                                        <groupId>mysql</groupId>
+                                        <artifactId>mysql-connector-java</artifactId>
+                                    </dependency>
+                                </dependencies>
+                            </container>
+
+                            <configuration>
+                                <properties>
+                                    <cargo.hostname>127.0.0.1</cargo.hostname>
+                                    <cargo.jboss.management-http.port>9990</cargo.jboss.management-http.port>
+                                    <cargo.servlet.users>adminUser:admin1234!</cargo.servlet.users>
+                                    <cargo.start.jvmargs>
+                                        -Xdebug
+                                        -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000
+                                        -Xnoagent
+                                        -Djava.compiler=NONE
+                                    </cargo.start.jvmargs>
+                                    <cargo.datasource.datasource.jf>
+                                        cargo.datasource.jndi=dacsdb|
+                                        cargo.datasource.url=jdbc:mysql://localhost:3306/dacsdb|
+                                        cargo.datasource.driver=com.mysql.jdbc.Driver|
+                                        cargo.datasource.username=root|
+                                        cargo.datasource.password=
+                                    </cargo.datasource.datasource.jf>
+                                </properties>
+                            </configuration>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <finalName>dacs</finalName>
+    </build>
+
+</project>

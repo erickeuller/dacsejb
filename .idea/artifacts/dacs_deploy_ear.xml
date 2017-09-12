@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="dacs-deploy:ear">
+    <output-path>$PROJECT_DIR$/dacs-deploy/target</output-path>
+    <root id="archive" name="dacs.ear">
+      <element id="artifact" artifact-name="dacs-deploy:ear exploded" />
+    </root>
+  </artifact>
+</component>
